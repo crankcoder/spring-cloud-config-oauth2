@@ -1,0 +1,34 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+#          messaging-client-auth-code:
+#            provider: keycloak
+#            client-id: messaging-client
+#            client-secret: secret
+#            authorization-grant-type: authorization_code
+#            redirect-uri: "{baseUrl}/authorized"
+#            scope: message.read,message.writespring.main.allow-bean-definition-overriding=true
+          messaging-client-client-creds:
+            provider: keycloak
+            client-id: messaging-client
+            client-secret: secret
+            authorization-grant-type: client_credentials
+            scope: message.read,message.write
+#          messaging-client-password:
+#            provider: keycloak
+#            client-id: messaging-client
+#            client-secret: secret
+#            authorization-grant-type: password
+#            scope: message.read,message.write
+        provider:
+          keycloak:
+            authorization-uri: http://localhost:8083/auth/realms/oauth2-sample/protocol/openid-connect/auth
+            token-uri: http://localhost:8083/auth/realms/oauth2-sample/protocol/openid-connect/token
+
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: *

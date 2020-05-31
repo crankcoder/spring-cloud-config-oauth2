@@ -1,0 +1,19 @@
+server:
+  port: 8090
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: /home/szymon/dev/repo/storm/config-repo
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+#          issuer-uri: http://localhost:8083/auth/realms/oauth2-sample
+          jwk-set-uri: http://localhost:8083/auth/realms/oauth2-sample/protocol/openid-connect/certs
+
+logging:
+  level:
+    root: DEBUG
